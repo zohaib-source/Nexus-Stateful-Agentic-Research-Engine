@@ -42,18 +42,3 @@ graph TD
     end
     
     Synthesis --> OutputPage[Live UI View];
-The State ContractEvery node reads from and writes to a shared, typed state object, ensuring data integrity across the pipeline:Pythonclass AgentState(TypedDict):
-    topic: str           # Original User Query
-    research_notes: str  # Raw extracted web data
-    analysis: str        # Distilled facts and insights
-    final_post: str      # High-fidelity Markdown output
-✨ FeaturesFeatureTechnical ImplementationMulti-Actor LogicOrchestrated via LangGraph to manage complex state transitions and conditional loops.Real-time ResearchIntegrates Tavily Search API for deep-web data extraction and source verification.SSE StreamingBackend status updates are pushed to the UI in real-time, visualizing the agent's "thought" process.Minimalist UIA high-end, dark-mode dashboard built with Next.js 14, Tailwind CSS, and Framer Motion.Markdown RenderingProfessional output styling using prose-invert for a publication-ready aesthetic.🛠️ Tech StackFrontend: Next.js 14 (App Router), Tailwind CSS, Lucide Icons, ReactMarkdown.Backend: FastAPI (Python), Uvicorn, LangGraph, LangChain.AI Models: Google Gemini 1.5 Flash (for high-speed analysis and synthesis).Data Tools: Tavily Search API.Deployment: Vercel (Optimized Serverless Monorepo).🚀 Getting Started1. Clone & ConfigureBashgit clone [https://github.com/zohaib-source/Nexus-Stateful-Agentic-Research-Engine.git](https://github.com/zohaib-source/Nexus-Stateful-Agentic-Research-Engine.git)
-cd Nexus-Stateful-Agentic-Research-Engine
-2. Set Environment VariablesCreate a .env file in the root directory:Code snippetGOOGLE_API_KEY=your_gemini_key
-TAVILY_API_KEY=your_tavily_key
-3. Local DevelopmentBackend:Bashpip install -r requirements.txt
-python -m uvicorn api.main:app --reload
-Frontend:Bashcd frontend
-npm install
-npm run dev
-🗺️ Future Roadmap[ ] Advanced RAG: Support for local PDF/Doc ingestion to supplement web research.[ ] MCP Integration: Implementing Model Context Protocol for local file system interaction.[ ] Multi-Agent Collaboration: Introducing a "Critique" node to verify technical accuracy before final output.📄 LicenseDistributed under the MIT License.
