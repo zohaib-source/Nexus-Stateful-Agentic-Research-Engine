@@ -6,7 +6,7 @@
 
 *A multi-actor orchestration pipeline that autonomously researches, analyzes, and synthesizes web data into publication-ready Markdown — streamed in real-time.*
 
-[![Live Demo](https://img.shields.io/badge/▶_Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://nexus-research.vercel.app)
+[![Live Demo](https://img.shields.io/badge/▶_Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://nexus-agentic-research.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js_14-000?style=flat-square&logo=next.js)](https://nextjs.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=flat-square&logo=langchain&logoColor=white)](https://langchain-ai.github.io/langgraph/)
