@@ -40,6 +40,8 @@ graph TD
     end
     
     Synthesis --> OutputPage[Live UI View];
+
+
 ### State Contract
 
 Every node reads from and writes to a shared typed state object:
