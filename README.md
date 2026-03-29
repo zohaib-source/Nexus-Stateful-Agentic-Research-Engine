@@ -26,48 +26,19 @@ The system is built on two principles:
 ---
 
 ## Architecture
-
-```
-                    ┌──────────────────────────────────┐
-                    │          User Input               │
-                    │        (topic: string)             │
-                    └───────────────┬──────────────────┘
-                                    │
-                                    ▼
-                    ┌──────────────────────────────────┐
-                    │         RESEARCHER                │
-                    │                                    │
-                    │   Tool: Tavily Search API          │
-                    │   Output: research_notes           │
-                    │   (3 ranked web results)           │
-                    └───────────────┬──────────────────┘
-                                    │  SSE → "Searching"
-                                    ▼
-                    ┌──────────────────────────────────┐
-                    │          ANALYST                   │
-                    │                                    │
-                    │   Tool: Gemini 2.5 Flash           │
-                    │   Output: analysis                 │
-                    │   (structured insights)            │
-                    └───────────────┬──────────────────┘
-                                    │  SSE → "Analyzing"
-                                    ▼
-                    ┌──────────────────────────────────┐
-                    │          WRITER                    │
-                    │                                    │
-                    │   Tool: Gemini 2.5 Flash           │
-                    │   Output: final_post               │
-                    │   (publication-ready Markdown)     │
-                    └───────────────┬──────────────────┘
-                                    │  SSE → "Complete"
-                                    ▼
-                    ┌──────────────────────────────────┐
-                    │         FRONTEND                  │
-                    │   ReactMarkdown + prose-invert    │
-                    │   Glassmorphism dark UI            │
-                    └──────────────────────────────────┘
-```
-
+%%{init: {'theme': 'dark'}}%%
+graph TD
+    UserInput[Topic: Quantum Computing] --> Researcher;
+    
+    subgraph Nexus: Agentic Orchestration
+        Researcher[Researcher: Tavily Search] --> Analyst;
+        Analyst{Gemini: Filter Data} --> Analyst_Check;
+        Analyst_Check[Validated Data] --> Writer;
+        Analyst_Check[Needs More Data?] -.->|Loop| Researcher;
+        Writer[Gemini: Generate Markdown] --> Synthesis[Final Blog Post];
+    end
+    
+    Synthesis --> OutputPage[Live UI View];
 ### State Contract
 
 Every node reads from and writes to a shared typed state object:
