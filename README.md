@@ -26,7 +26,8 @@ The system is built on two principles:
 ---
 
 ## Architecture
-%%{init: {'theme': 'dark'}}%%
+
+```mermaid
 graph TD
     UserInput[Topic: Quantum Computing] --> Researcher;
     
